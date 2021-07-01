@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping("/{uuid}")
     public ResponseEntity<User> getUser(@PathVariable UUID uuid) {
         User user = service.findById(uuid).orElseThrow(IllegalArgumentException::new);
-        user.add(linkTo(methodOn(UserController.class).getUsers()).withRel("List of Products"));
+        user.add(linkTo(methodOn(UserController.class).getUsers()).withRel("List of Users"));
         return ResponseEntity.ok(user);
     }
 }
